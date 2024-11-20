@@ -1,61 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace siniflar
+namespace ucgenCevre
 {
-    class Ogrenci
+    internal class Program
     {
-        public string[] Dersler { get; set; }
-        public int DersSayisi { get; set; }
-    }
-
-    class Ogretmen
-    {
-        public string[] VerdigiDersler { get; set; }
-        public int DersSayisi { get; set; }
-    }
-
-    class Program
-    {
-        static void Ogrenciprogrami(Ogrenci ogr)
-        {
-            Console.WriteLine($"\nÖğrencinin ders programı ({ogr.DersSayisi} ders):");
-            foreach (var ders in ogr.Dersler)
-            {
-                Console.WriteLine($"- {ders}");
-            }
-        }
-
-        static void Ogretmenprogrami(Ogretmen ogrt)
-        {
-            Console.WriteLine($"\nÖğretmenin dersleri ({ogrt.DersSayisi} ders):");
-            foreach (var ders in ogrt.VerdigiDersler)
-            {
-                Console.WriteLine($"- {ders}");
-            }
-        }
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Hoş geldiniz! Lütfen bir seçim yapınız:");
-            Console.WriteLine("1. Öğretmen");
-            Console.WriteLine("2. Öğrenci");
-            Console.Write("Seçiminiz: ");
-            int secim = Convert.ToInt32(Console.ReadLine());
-            Ogrenci ogrenci = new Ogrenci { Dersler = new string[] { "Algoritma", "Yazılım" }, DersSayisi = 2 };
-            Ogretmen ogretmen = new Ogretmen { VerdigiDersler = new string[] { "Algoritma", "Yazılım" }, DersSayisi = 2 };
-            if (secim == 1)
-            {
-                Ogretmenprogrami(ogretmen);
-            }
-            else if (secim == 2)
-            {
-                Ogrenciprogrami(ogrenci);
-            }
-            else
-            {
-                Console.WriteLine("Geçersiz seçim!");
-            }
-            Console.ReadKey();
+            Console.WriteLine("birinci kenarı giriniz");
+            int kenar1 =Convert.ToInt32( Console.ReadLine());
+            Console.WriteLine("ikinci kenarı giriniz");
+            int kenar2=Convert.ToInt32( Console.ReadLine());
+            Console.WriteLine("üçüncü kenarı giriniz");
+            int kenar3=Convert.ToInt32( Console.ReadLine());
+            int cevre=(kenar1+kenar2+kenar3);
+            Console.WriteLine("Üçgen çevresi: "+cevre);
+            Console.WriteLine("karenin bir kenar uzunluğunu giriniz");
+            int kenar4=Convert.ToInt32( Console.ReadLine());
+            int kareAlan = (kenar4 * kenar4);
+            Console.WriteLine("karenin alanı: "+kareAlan);
+
         }
     }
 }
