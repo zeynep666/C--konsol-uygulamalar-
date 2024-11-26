@@ -1,61 +1,39 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace siniflar
+namespace servis
 {
-    class Ogrenci
+    internal class Program
     {
-        public string[] Dersler { get; set; }
-        public int DersSayisi { get; set; }
-    }
-
-    class Ogretmen
-    {
-        public string[] VerdigiDersler { get; set; }
-        public int DersSayisi { get; set; }
-    }
-
-    class Program
-    {
-        static void Ogrenciprogrami(Ogrenci ogr)
-        {
-            Console.WriteLine($"\nÖğrencinin ders programı ({ogr.DersSayisi} ders):");
-            foreach (var ders in ogr.Dersler)
-            {
-                Console.WriteLine($"- {ders}");
-            }
-        }
-
-        static void Ogretmenprogrami(Ogretmen ogrt)
-        {
-            Console.WriteLine($"\nÖğretmenin dersleri ({ogrt.DersSayisi} ders):");
-            foreach (var ders in ogrt.VerdigiDersler)
-            {
-                Console.WriteLine($"- {ders}");
-            }
-        }
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Hoş geldiniz! Lütfen bir seçim yapınız:");
-            Console.WriteLine("1. Öğretmen");
-            Console.WriteLine("2. Öğrenci");
-            Console.Write("Seçiminiz: ");
-            int secim = Convert.ToInt32(Console.ReadLine());
-            Ogrenci ogrenci = new Ogrenci { Dersler = new string[] { "Algoritma", "Yazılım" }, DersSayisi = 2 };
-            Ogretmen ogretmen = new Ogretmen { VerdigiDersler = new string[] { "Algoritma", "Yazılım" }, DersSayisi = 2 };
-            if (secim == 1)
+            List<string> ogrenciliste = new List<string>();
+            int ogrencisayi = 0;
+            Console.WriteLine("Öğrenci eklemel istiyorsanız 1 istemiyorsanız 2ye basın.");
+            while (true)
             {
-                Ogretmenprogrami(ogretmen);
+                int karar = 0;
+                karar= Convert.ToInt32(Console.ReadLine());
+                if (karar == 1 )
+                {
+                    Console.WriteLine("Geziye katılacak öğrenci isimlerini giriniz.");
+                    ogrenciliste.Add(Console.ReadLine());
+                    ogrencisayi++;
+                    Console.WriteLine("Devam etmek istiyor musunuz? Evet 1 Hayır 2 ");
+                }
+                else if (karar == 2 )
+                {
+                    Console.WriteLine("Ekleme işlemi bitti. Toplam eklenen kişi sayısı" + ogrencisayi);
+                    break;
+                }
+                else 
+                {
+                    Console.WriteLine("Geçersiz değer. Tekrar deneyiniz.");
+                }
             }
-            else if (secim == 2)
-            {
-                Ogrenciprogrami(ogrenci);
-            }
-            else
-            {
-                Console.WriteLine("Geçersiz seçim!");
-            }
-            Console.ReadKey();
         }
     }
 }
