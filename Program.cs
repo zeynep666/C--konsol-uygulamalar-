@@ -1,61 +1,96 @@
 ﻿using System;
 
-namespace siniflar
+namespace Bankamatik
 {
-    class Ogrenci
-    {
-        public string[] Dersler { get; set; }
-        public int DersSayisi { get; set; }
-    }
-
-    class Ogretmen
-    {
-        public string[] VerdigiDersler { get; set; }
-        public int DersSayisi { get; set; }
-    }
-
     class Program
     {
-        static void Ogrenciprogrami(Ogrenci ogr)
-        {
-            Console.WriteLine($"\nÖğrencinin ders programı ({ogr.DersSayisi} ders):");
-            foreach (var ders in ogr.Dersler)
-            {
-                Console.WriteLine($"- {ders}");
-            }
-        }
-
-        static void Ogretmenprogrami(Ogretmen ogrt)
-        {
-            Console.WriteLine($"\nÖğretmenin dersleri ({ogrt.DersSayisi} ders):");
-            foreach (var ders in ogrt.VerdigiDersler)
-            {
-                Console.WriteLine($"- {ders}");
-            }
-        }
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Hoş geldiniz! Lütfen bir seçim yapınız:");
-            Console.WriteLine("1. Öğretmen");
-            Console.WriteLine("2. Öğrenci");
-            Console.Write("Seçiminiz: ");
-            int secim = Convert.ToInt32(Console.ReadLine());
-            Ogrenci ogrenci = new Ogrenci { Dersler = new string[] { "Algoritma", "Yazılım" }, DersSayisi = 2 };
-            Ogretmen ogretmen = new Ogretmen { VerdigiDersler = new string[] { "Algoritma", "Yazılım" }, DersSayisi = 2 };
-            if (secim == 1)
+            int bakiye = 1000;
+
+            Console.WriteLine("Bankamatik Sistemine Hoş Geldiniz!");
+            Console.Write("Lütfen bir kullanıcı adı oluşturun: ");
+            string kullaniciAdi = Console.ReadLine();
+            Console.Write("Lütfen bir şifre oluşturun: ");
+            
+            string sifre = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("\nKullanıcı adı ve şifre başarıyla oluşturuldu!");
+            Console.WriteLine("Giriş ekranına yönlendiriliyorsunuz...\n");
+            Console.Write("Kullanıcı Adınızı Girin: ");
+            string girilenKullaniciAdi = Console.ReadLine();
+
+            Console.Write("Şifrenizi Girin: ");
+            string girilenSifre = Console.ReadLine();
+
+            if (girilenKullaniciAdi != kullaniciAdi || girilenSifre != sifre)
             {
-                Ogretmenprogrami(ogretmen);
+                Console.WriteLine("Hatalı kullanıcı adı veya şifre!");
+                Console.ReadLine();
             }
-            else if (secim == 2)
+            
+            Console.WriteLine("Giriş başarılı!");
+
+            while (true)
             {
-                Ogrenciprogrami(ogrenci);
+               
+                Console.WriteLine("\nLütfen bir işlem seçin:");
+                Console.WriteLine("1. Bakiye Görüntüle");
+                Console.WriteLine("2. Para Yatır");
+                Console.WriteLine("3. Para Çek");
+                Console.WriteLine("4. Çıkış");
+
+                Console.Write("Seçiminiz: ");
+                string secim = Console.ReadLine();
+
+                switch (secim)
+                {
+                    case "1": 
+                        Console.WriteLine($"Bakiyeniz: {bakiye} TL");
+                        break;
+
+                    case "2": 
+                        Console.Write("Yatırmak istediğiniz tutarı girin: ");
+                        int yatirilanTutar = Convert.ToInt32(Console.ReadLine());
+                        if (yatirilanTutar > 0)
+                        {
+                            bakiye += yatirilanTutar;
+                            Console.WriteLine($"Yeni bakiyeniz: {bakiye} TL");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Geçersiz tutar!");
+                        }
+                        break;
+
+                    case "3": 
+                        Console.Write("Çekmek istediğiniz tutarı girin: ");
+                        int cekilenTutar = Convert.ToInt32(Console.ReadLine());
+                        if (cekilenTutar > 0 && cekilenTutar <= bakiye)
+                        {
+                            bakiye -= cekilenTutar;
+                            Console.WriteLine($"Yeni bakiyeniz: {bakiye} TL");
+                        }
+                        else if (cekilenTutar > bakiye)
+                        {
+                            Console.WriteLine("Yetersiz bakiye!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Geçersiz tutar!");
+                        }
+                        break;
+
+                    case "4": 
+                        Console.WriteLine("Çıkış yapılıyor. İyi günler!");
+                        return;
+
+                    default:
+                        Console.WriteLine("Geçersiz seçim, lütfen tekrar deneyin.");
+                        break;
+                }
             }
-            else
-            {
-                Console.WriteLine("Geçersiz seçim!");
-            }
-            Console.ReadKey();
         }
     }
 }
+
