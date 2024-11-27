@@ -1,61 +1,55 @@
-﻿using System;
-
-namespace siniflar
+﻿namespace _hesapMakinesi
 {
-    class Ogrenci
+    class hesap
     {
-        public string[] Dersler { get; set; }
-        public int DersSayisi { get; set; }
-    }
-
-    class Ogretmen
-    {
-        public string[] VerdigiDersler { get; set; }
-        public int DersSayisi { get; set; }
-    }
-
-    class Program
-    {
-        static void Ogrenciprogrami(Ogrenci ogr)
-        {
-            Console.WriteLine($"\nÖğrencinin ders programı ({ogr.DersSayisi} ders):");
-            foreach (var ders in ogr.Dersler)
-            {
-                Console.WriteLine($"- {ders}");
-            }
-        }
-
-        static void Ogretmenprogrami(Ogretmen ogrt)
-        {
-            Console.WriteLine($"\nÖğretmenin dersleri ({ogrt.DersSayisi} ders):");
-            foreach (var ders in ogrt.VerdigiDersler)
-            {
-                Console.WriteLine($"- {ders}");
-            }
-        }
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Hoş geldiniz! Lütfen bir seçim yapınız:");
-            Console.WriteLine("1. Öğretmen");
-            Console.WriteLine("2. Öğrenci");
-            Console.Write("Seçiminiz: ");
-            int secim = Convert.ToInt32(Console.ReadLine());
-            Ogrenci ogrenci = new Ogrenci { Dersler = new string[] { "Algoritma", "Yazılım" }, DersSayisi = 2 };
-            Ogretmen ogretmen = new Ogretmen { VerdigiDersler = new string[] { "Algoritma", "Yazılım" }, DersSayisi = 2 };
-            if (secim == 1)
+            while (true) // Sonsuz döngü
             {
-                Ogretmenprogrami(ogretmen);
+                for (int i = 0; i < 1; i++)
+                {
+                    Console.Write("sayı 1 : ");
+                    int sayi1 = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("sayı 2 : ");
+                    int sayi2 = Convert.ToInt32(Console.ReadLine());
+                    // \n işareti alt satıra geçmeyi sağlar o sebeple koydum
+                    Console.WriteLine("1.toplama işlemi \n2.çıkarma işlemi \n3.çarpma işlemi \n4.bölme işlemi ");
+                    Console.Write("Hangi işlemi yapmak istediğinizi seçiniz: ");
+                    int islem = Convert.ToInt32(Console.ReadLine());
+
+                    if (islem == 1)
+                    {
+                        Console.WriteLine("Cevap = " + (sayi1 + sayi2));
+                    }
+                    else if (islem == 2)
+                    {
+                        Console.WriteLine("Cevap = " + (sayi1 - sayi2));
+                    }
+                    else if (islem == 3)
+                    {
+                        Console.WriteLine("Cevap = " + (sayi1 * sayi2));
+                    }
+                    else if (islem == 4)
+                    {
+                        Console.WriteLine("Cevap = " + (sayi1 / sayi2));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hatalı seçim!");
+                    }
+                }
+
+                Console.WriteLine("\nYeni işlem yapmak istiyor musunuz? (1: Evet, 2: Hayır): ");
+                int devam = Convert.ToInt32(Console.ReadLine());
+
+                if (devam != 1)
+                {
+                    break;
+                }
             }
-            else if (secim == 2)
-            {
-                Ogrenciprogrami(ogrenci);
-            }
-            else
-            {
-                Console.WriteLine("Geçersiz seçim!");
-            }
-            Console.ReadKey();
+            Console.WriteLine("Programdan çıkılıyor...");
+            Console.ReadLine();
         }
+        
     }
 }
