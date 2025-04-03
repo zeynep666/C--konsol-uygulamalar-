@@ -1,0 +1,7 @@
+C:\Users\zeyne\OneDrive\Masaüstü\visualstudio\bagalilissteler\bagalilissteler\bin\Debug\bagalilissteler.exe.config
+C:\Users\zeyne\OneDrive\Masaüstü\visualstudio\bagalilissteler\bagalilissteler\bin\Debug\bagalilissteler.exe
+C:\Users\zeyne\OneDrive\Masaüstü\visualstudio\bagalilissteler\bagalilissteler\bin\Debug\bagalilissteler.pdb
+C:\Users\zeyne\OneDrive\Masaüstü\visualstudio\bagalilissteler\bagalilissteler\obj\Debug\bagalilissteler.csproj.AssemblyReference.cache
+C:\Users\zeyne\OneDrive\Masaüstü\visualstudio\bagalilissteler\bagalilissteler\obj\Debug\bagalilissteler.csproj.CoreCompileInputs.cache
+C:\Users\zeyne\OneDrive\Masaüstü\visualstudio\bagalilissteler\bagalilissteler\obj\Debug\bagalilissteler.exe
+C:\Users\zeyne\OneDrive\Masaüstü\visualstudio\bagalilissteler\bagalilissteler\obj\Debug\bagalilissteler.pdb
